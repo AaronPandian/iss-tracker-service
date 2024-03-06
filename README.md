@@ -28,7 +28,7 @@ Create a folder in your directory to input the code, for example, "iss_app", by 
 
 Run `cd iss_app` to enter the created folder then run the `wget <linktofile>` command to import all the files from this repository into your directory. 
 
-Once all the files are gathered, double check with `ls`. To build the image, run the command `docker build -t <dockerhubusername>/iss_tracker:1.0 .` and check if the build was successful with `docker images.`.
+Once all the files are gathered, double check with `ls`. To build the image, run the command `docker build -t <dockerhubusername>/iss_tracker:1.0 .` and check if the build was successful with `docker images`.
 
 By implementing the command above, you should see the image created with the tag `<dockerhubusername>/iss_tracker:1.0`.
 
