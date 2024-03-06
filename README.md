@@ -7,11 +7,11 @@ This repository contains the source code and instruction to build, run, and test
 1. [Software Diagram](#software-diagram)
 2. [Data Description](#data-description)
 3. [Build and Deploy](#build-and-deploy)
-   3.1 [How to Build the Container](#how-to-build-the-container)
-   3.2 [How to Deploy Containerized Code as a Flask App](#how-to-deploy-containerized-code-as-a-flask-app)
+   3.1. [How to Build the Container](#how-to-build-the-container)
+   2. [How to Deploy Containerized Code as a Flask App](#how-to-deploy-containerized-code-as-a-flask-app)
 4. [Service Functionality](#service-functionality)
-   4.1 [Accessing Routes](#accessing-routes)
-   4.2 [What Outputs to Expect](#what-outputs-to-expect)
+   4.1. [Accessing Routes](#accessing-routes)
+   4.2. [What Outputs to Expect](#what-outputs-to-expect)
 5. [Citations](#citations)
 
 ## Software Diagram
