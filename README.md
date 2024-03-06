@@ -6,14 +6,15 @@ This repository contains the source code and instructions to build, run, and tes
 ### Table of Contents
 1. [Software Diagram](#software-diagram)
 2. [Data Description](#data-description)
-3. [Build and Deploy](#build-and-deploy)
+3. [Repository Description](#repository-description)
+4. [Build and Deploy](#build-and-deploy)
    1. [How to Build the Container](#how-to-build-the-container)
    2. [How to Deploy Containerized Code as a Flask App](#how-to-deploy-containerized-code-as-a-flask-app)
    3. [How to Run Unit Tests](#how-to-run-unit-tests)
-4. [Service Functionality](#service-functionality)
+5. [Service Functionality](#service-functionality)
    1. [Accessing Routes](#accessing-routes)
    2. [What Outputs to Expect](#what-outputs-to-expect)
-5. [Citations](#citations)
+6. [Citations](#citations)
 
 ### Software Diagram
 ![Alt text](https://github.com/AaronPandian/coe323-homeworks/blob/main/homework05/diagram.png)
@@ -21,10 +22,18 @@ This repository contains the source code and instructions to build, run, and tes
 ### Data Description
 The ISS tracking data this app requests can be found on the NASA website [[1]](#citations). This ephemeris dataset, compiled by the NASA Johnson Space Center, contains a header section and a primary data section. The header contains the ISS mass in kg, drag area in m<sup>2</sup>, and drag coefficient used in generating the subsequent data. The primary data section contains information from the last 15-day interval. The timesteps vary from 4 minutes to 2 seconds and timestep notes state vectors detailing the time in UTC ISO date format; position X, Y, and Z in km; and velocity X, Y, and Z in km/s.
 
+### Repository Description
+In this repository, there are six critical files. A short description of each is bulleted in the following list. 
+* _iss_tracker.py_ is the main service file running the flask application that enables a user to request certain compiled information from the ISS trajectory dataset.
+* _docker-compose.yml_ is the YAML file used to state rules created to **replace** complicated docker run commands the user must input to create an image instance. 
+* _Dockerfile_ is the recipe for our application installation process used by _docker-compose.yml_. 
+* _requirements.txt_ is a text file managing package dependencies for the application used by _Dockerfile_. 
+* _test_iss_tracker.py_ is the testing script that runs unit tests on the routes and functions developed within _iss_tracker.py_.
+
 ### Build and Deploy
 First, ensure the environment you are using has Docker installed. Second, you should be conducting the following within the root folder you imported the source code into before.
 #### How to Build the Container
-Create a folder in your directory to input the code, for example, "iss_app", by running `mkdir iss_app`.
+Create a folder in your directory to input the code, for example, _iss_app_, by running `mkdir iss_app`.
 
 Run `cd iss_app` to enter the created folder then run the `wget <linktofile>` command to import all the files from this repository into your directory. 
 
@@ -60,7 +69,7 @@ After running the `docker-compose up -d` command, a background terminal will be 
      * This information includes the ISS object name, ID, center name, data reference frame, time system, start time, and end time. 
 
 #### What Outputs to Expect
-In running the main script from an image, once running the routes above, the user should receive the respective information printed out to the terminal. 
+In running the main script from an image, once running the routes above, the user should receive the respective information printed out to the terminal. A few example commands and their output can be seen below. 
 
 ### Citations
 <a id="1">[1]</a>
