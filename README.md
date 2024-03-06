@@ -3,10 +3,21 @@
 ## High-Level Description
 This repository contains the source code and instruction to build, run, and test a developed containorized flask application. The service relays current information on the International Space Station (ISS) trajectory to the user. The methods of engaging with this data can be found in the various flask routes detailed below. The ephemeris data the service utilizes is from NASA's public ISS trajectory dataset [[1]](#Citations). 
 
+## Table of Contents
+1. [Software Diagram](#Software_Diagram)
+2. [Data Description]
+3. [Build and Deploy]
+   * [How to Build the Container]
+   * [How to Deploy the Container as Flask App]
+4. [Service Functionality]
+   * [Accessing Routes]
+   * [What Outputs to Expect]
+5. [Citations]
+
 ## Software Diagram
 ![Alt text](https://github.com/AaronPandian/coe323-homeworks/blob/main/homework05/diagram.png)
 
-## How to Access the Data
+## About the Data
 The ISS tracking data this code requests can be found on the NASA website:
 "https://spotthestation.nasa.gov/trajectory_data.cfm." This ephemeris data, compiled by the NASA Johnson Space Center, contains a header section and a primary data section. The header primarily, concerning the utility of this code, contains the ISS mass in kg, drag area in m^2, and drag coefficient used in generating the subsequent data. The subsequent section contains data from the last 15-day interval. The timesteps vary from 4 minutes to 2 seconds and each house state vectors containing the time in UTC; position X, Y, and Z in km; and velocity X, Y, and Z in km/s.
 
