@@ -73,7 +73,7 @@ In running the main script from an image, once running the routes above, the use
 
 After running the `docker-compose up -d` command, the link provided was "http://10.146.109.153:5000". Using this, the following example commands were run. 
 
-`curl http://10.146.109.153:5000/metadata`
+##### `curl http://10.146.109.153:5000/metadata`
 ```
 {
   "CENTER_NAME": [
@@ -100,14 +100,14 @@ After running the `docker-compose up -d` command, the link provided was "http://
 }
 ```
 
-`curl http://10.146.109.153:5000/epochs/10/speed`
+##### `curl http://10.146.109.153:5000/epochs/10/speed`
 ```
 [
   7.664049347556523
 ]
 ```
 
-`curl http://10.146.109.153:5000/epochs/20/location`
+##### `curl http://10.146.109.153:5000/epochs/20/location`
 ```
 [
   [
