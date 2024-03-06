@@ -1,7 +1,7 @@
-# REST API Analysis of ISS Trajectory Data 
+# Flask ISS Trajectory Analysis Service
 
 ## High-Level Description
-This folder contains a Dockerfile, allowing the user to create and run an image of a Flask app analyzing ISS tracking data. The code consists of a main script "iss_tracker" hosting the web application functions returning current pieces of the ISS data taken online, and a unit test script "test_iss_tracker" that tests the main script functions. 
+This repository contains the source code and instruction to build, run, and test a developed containorized flask application. The service relays current information on the International Space Station (ISS) trajectory to the user. The methods of engaging with this data can be found in the various flask routes detailed below. The ephemeris data the service utilizes is from NASA's public ISS trajectory dataset. 
 
 ## Software Diagram
 ![Alt text](https://github.com/AaronPandian/coe323-homeworks/blob/main/homework05/diagram.png)
@@ -33,3 +33,7 @@ Once the image is running, the terminal will be waiting for requests to be made 
 
 ## Output and What to Expect
 In running the main script from an image, once running the routes above, the user should receive the respective information printed out to the terminal. 
+
+## Citations
+<a id="1">[1]</a>
+“Spot the Station.” ISS Trajectory Data, NASA, spotthestation.nasa.gov/trajectory_data.cfm. Accessed 6 Mar. 2024. 
