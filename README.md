@@ -4,7 +4,7 @@
 This repository contains the source code and instruction to build, run, and test a developed containorized flask application. The service relays current information on the International Space Station (ISS) trajectory to the user. The methods of engaging with this data can be found in the various flask routes detailed below. The ephemeris data the service utilizes is from NASA's public ISS trajectory dataset [[1]](#Citations). 
 
 ## Table of Contents
-1. [Software Diagram](#Software_Diagram)
+1. [Software Diagram](#Software Diagram)
 2. [Data Description]
 3. [Build and Deploy]
    * [How to Build the Container]
