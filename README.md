@@ -47,7 +47,7 @@ Just to note, you can run a unit test script to ensure the main iss_tracker.py s
 After running the `docker-compose up -d` command, a background terminal will be waiting for requests to be made using specific URL routes. Using the HTTPS URL displayed in your main terminal, type `curl <URL>`, then append the following routes at the end of the URL to induce the desired dataset analysis. 
 
 * `/epochs` returns the whole dataset.
-* `/epochs?limit=int&offset=int` returns a modified dataset given the integer query parameters.
+* `/epochs?limit=int&offset=int` returns a modified dataset given the integer query parameters. Note that to run this route, specifically, the command will include quotation marks like `curl '<URL>/epochs?limit=int&offset=int'`.
      * The offset parameter denotes the number of epochs you want to returned and the limit sets the final epoch index. If the offset value is greater than the limit, _all_ preceeding epoch datapoints will be returned. 
 * `/epochs/<epoch>` returns the state vector for the specific epoch at index `<epoch>`.
 * `/epochs/<epoch>/speed` returns the instantaneous speed of the ISS at the specified epoch index `<epoch>`.
