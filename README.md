@@ -74,15 +74,46 @@ In running the main script from an image, once running the routes above, the use
 After running the `docker-compose up -d` command, the link provided was "http://10.146.109.153:5000". Using this, the following example commands were run. 
 * `curl http://10.146.109.153:5000/metadata`
 ```
-if I in J = 01
+{
+  "CENTER_NAME": [
+    "EARTH"
+  ],
+  "OBJECT_ID": [
+    "1998-067-A"
+  ],
+  "OBJECT_NAME": [
+    "ISS"
+  ],
+  "REF_FRAME": [
+    "EME2000"
+  ],
+  "START_TIME": [
+    "2024-064T12:00:00.000Z"
+  ],
+  "STOP_TIME": [
+    "2024-079T12:00:00.000Z"
+  ],
+  "TIME_SYSTEM": [
+    "UTC"
+  ]
+}
 ```
 * `curl http://10.146.109.153:5000/epochs/10/speed`
 ```
-   
+[
+  7.664049347556523
+]
 ```
-* `curl http://10.146.109.153:5000/epochs/<epoch>/location`
+* `curl http://10.146.109.153:5000/epochs/20/location`
 ```
-
+[
+  [
+    -21.416201983874277,
+    -49.391407404888184,
+    429.995041495049
+  ],
+  "Vale Formoso, Novo Horizonte, Regio Imediata de So Jos do Rio Preto, Regio Geogrfica Intermediria de So Jos do Rio Preto, San Pablo, Regin Sudeste, Brasil"
+]
 ```
 
 ### Citations
