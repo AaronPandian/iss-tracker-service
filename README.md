@@ -40,7 +40,7 @@ At this point, your continer is running the main iss_tracker.py script in the ba
 Once you are done running the flask app, to clean up your interface, remove the image using the container ID found when running `docker images`. Once the ID is found, run `docker stop <containerID>` to stop the application from running in the background, and then `docker rm <containerID>` to remove the instance from your list of images.
 
 #### How to Run Unit Tests
-Just to note, you can run a unit test script to ensure the main iss_tracker.py script is running as it should. After the image is build and while the main script is not running use `docker run <dockerhubusername>/iss_tracker:1.0 test_iss_tracker.py` command to run the test. If no output is seen, then the main service script is working as it should be.  
+Just to note, you can run a unit test script to ensure the main iss_tracker.py script is running as it should. After the image is built and while the main script is not running, use the `docker run <dockerhubusername>/iss_tracker:1.0 test_iss_tracker.py` command to run the test. If no output is seen, then the main service script is working as it should be.  
 
 ### Service Functionality
 #### Accessing Routes
