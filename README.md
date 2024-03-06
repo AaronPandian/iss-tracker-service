@@ -30,7 +30,7 @@ Run `cd iss_app` to enter the created folder then run the `wget <linktofile>` co
 
 Once all the files are gathered, double check with `ls`. To build the image, run the command `docker build -t <dockerhubusername>/iss_tracker:1.0 .` and check if the build was successful with `docker images.`.
 
-By implementing the command above, you should see the image created with the tag "<dockerhubusername>/iss_tracker:1.0".
+By implementing the command above, you should see the image created with the tag `<dockerhubusername>/iss_tracker:1.0`.
 
 #### How to Deploy Containerized Code as a Flask App
 After building the image, you can run the instance as a container. To do so, enter the command `docker-compose up -d`. This runs the Docker Compose file which deploys the image in the background.  
