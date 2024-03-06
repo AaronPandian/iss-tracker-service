@@ -21,17 +21,13 @@ This repository contains the source code and instruction to build, run, and test
 The ISS tracking data this app requests can be found on the NASA website [[1]](#citations). This ephemeris dataset, compiled by the NASA Johnson Space Center, contains a header section and a primary data section. The header contains the ISS mass in kg, drag area in m<sup>2</sup>, and drag coefficient used in generating the subsequent data. The primary data section contains information from the last 15-day interval. The timesteps vary from 4 minutes to 2 seconds and timestep notes state vectors detailing the time in UTC ISO date format; position X, Y, and Z in km; and velocity X, Y, and Z in km/s.
 
 ### Build and Deploy
-<p> First ensure the environment you are using has Docker installed. <p>
+First ensure the environment you are using has Docker installed.
 #### How to Build the Container
 Clone the GitHub repository to your machine, then log in to docker from your machine. 
-
 Implement "docker build" to construct an image of the container using the path of the Dockerfile from the source code. It will look something like `docker build -t <dockerhubusername>/<code>:<version> .` to build the Dockerfile. The `<dockerhubusername>` above represents the image and tag name on a local machine. The `<code>` represents the filename, for example "iss_tracker.py".
-
 Subsequently, use `docker tag` to set a tag for the image. Next run `docker images` to ensure the instance was created successfully with the corresponding tag.
-
 #### How to Deploy Containerized Code as a Flask App
 Now using the following command, we can run the main script iss_tracker.py as `docker run --name "iss-tracker-app" -d -p 5000:5000 <dockerhubusername>/<code>:<version>` and obtain an image instance. 
-
 To run the unit test, use the same `docker run <dockerhubusername>/<code>:<version>` command replacing the code file with "test_iss_tracker.py" to test the main script functions. 
 
 ### Service Functionality
