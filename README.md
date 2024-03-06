@@ -21,7 +21,7 @@ This repository contains the source code and instruction to build, run, and test
 The ISS tracking data this app requests can be found on the NASA website [[1]](#citations). This ephemeris dataset, compiled by the NASA Johnson Space Center, contains a header section and a primary data section. The header contains the ISS mass in kg, drag area in m<sup>2</sup>, and drag coefficient used in generating the subsequent data. The primary data section contains information from the last 15-day interval. The timesteps vary from 4 minutes to 2 seconds and timestep notes state vectors detailing the time in UTC ISO date format; position X, Y, and Z in km; and velocity X, Y, and Z in km/s.
 
 ### Build and Deploy
-First ensure the environment you are using has Docker installed.
+<p> First ensure the environment you are using has Docker installed. <p>
 #### How to Build the Container
 Clone the GitHub repository to your machine, then log in to docker from your machine. 
 
