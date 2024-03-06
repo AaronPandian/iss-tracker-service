@@ -1,9 +1,9 @@
 # Flask ISS Trajectory Analysis Service
 
-## High-Level Description
+### High-Level Description
 This repository contains the source code and instruction to build, run, and test a developed containorized flask application. The service relays current information on the International Space Station (ISS) trajectory to the user. The methods of engaging with this data can be found in the various flask routes detailed below. The ephemeris data the service utilizes is from NASA's public ISS trajectory dataset [[1]](#citations). 
 
-## Table of Contents
+### Table of Contents
 1. [Software Diagram](#software-diagram)
 2. [Data Description](#data-description)
 3. [Build and Deploy](#build-and-deploy)
@@ -14,27 +14,27 @@ This repository contains the source code and instruction to build, run, and test
    2. [What Outputs to Expect](#what-outputs-to-expect)
 5. [Citations](#citations)
 
-## Software Diagram
+### Software Diagram
 ![Alt text](https://github.com/AaronPandian/coe323-homeworks/blob/main/homework05/diagram.png)
 
-## Data Description
+### Data Description
 The ISS tracking data this app requests can be found on the NASA website [[1]](#citations). This ephemeris dataset, compiled by the NASA Johnson Space Center, contains a header section and a primary data section. The header contains the ISS mass in kg, drag area in m<sup>2</sup>, and drag coefficient used in generating the subsequent data. The primary data section contains information from the last 15-day interval. The timesteps vary from 4 minutes to 2 seconds and timestep notes state vectors detailing the time in UTC ISO date format; position X, Y, and Z in km; and velocity X, Y, and Z in km/s.
 
-## Build and Deploy
-### How to Build the Container
+### Build and Deploy
+#### How to Build the Container
 Clone the GitHub repository to your machine, then log in to docker from your machine. 
 
 Implement "docker build" to construct an image of the container using the path of the Dockerfile from the source code. It will look something like `docker build -t <dockerhubusername>/<code>:<version> .` to build the Dockerfile. The `<dockerhubusername>` above represents the image and tag name on a local machine. The `<code>` represents the filename, for example "iss_tracker.py".
 
 Subsequently, use `docker tag` to set a tag for the image. Next run `docker images` to ensure the instance was created successfully with the corresponding tag.
 
-### How to Deploy Containerized Code as a Flask App
+#### How to Deploy Containerized Code as a Flask App
 Now using the following command, we can run the main script iss_tracker.py as `docker run --name "iss-tracker-app" -d -p 5000:5000 <dockerhubusername>/<code>:<version>` and obtain an image instance. 
 
 To run the unit test, use the same `docker run <dockerhubusername>/<code>:<version>` command replacing the code file with "test_iss_tracker.py" to test the main script functions. 
 
-## Service Functionality
-### Accessing Routes
+### Service Functionality
+#### Accessing Routes
 Once the image is running, the terminal will be waiting for requests to be made using specific URL routes. Using the HTTPS URL displayed in the terminal, open another window in your command prompt and paste the URL. Then append the following routes at the end of the URL to obtain the desired functions. 
 
 * `/epochs` returns the whole dataset.
@@ -43,9 +43,9 @@ Once the image is running, the terminal will be waiting for requests to be made 
 * `/epochs/<epoch>/speed` returns the instantaneous speed of the ISS at the specified epoch index `<epoch>`.
 * `/now` returns the state vector and instantaneous speed for the most current epoch.
 
-### What Outputs to Expect
+#### What Outputs to Expect
 In running the main script from an image, once running the routes above, the user should receive the respective information printed out to the terminal. 
 
-## Citations
+### Citations
 <a id="1">[1]</a>
 “Spot the Station.” ISS Trajectory Data, NASA, spotthestation.nasa.gov/trajectory_data.cfm. Accessed 6 Mar. 2024. 
