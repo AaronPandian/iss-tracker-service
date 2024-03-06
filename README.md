@@ -69,7 +69,21 @@ After running the `docker-compose up -d` command, a background terminal will be 
      * This information includes the ISS object name, ID, center name, data reference frame, time system, start time, and end time. 
 
 #### What Outputs to Expect
-In running the main script from an image, once running the routes above, the user should receive the respective information printed out to the terminal. A few example commands and their output can be seen below. 
+In running the main script from an image, once running the routes above, the user should receive the respective information printed out to the terminal. A few example commands and their output can be seen below. Note that the dataset is updating constantly so _example outputs may not be exactly what you see_, and host HTTPS URL links vary. 
+
+After running the `docker-compose up -d` command, the link provided was "http://10.146.109.153:5000". Using this, the following example commands were run. 
+* `curl http://10.146.109.153:5000/metadata`
+```
+if I in J = 01
+```
+* `curl http://10.146.109.153:5000/epochs/10/speed`
+```
+   
+```
+* `curl http://10.146.109.153:5000/epochs/<epoch>/location`
+```
+
+```
 
 ### Citations
 <a id="1">[1]</a>
