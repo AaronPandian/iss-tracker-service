@@ -72,7 +72,8 @@ After running the `docker-compose up -d` command, a background terminal will be 
 In running the main script from an image, once running the routes above, the user should receive the respective information printed out to the terminal. A few example commands and their output can be seen below. Note that the dataset is updating constantly so _example outputs may not be exactly what you see_, and host HTTPS URL links vary. 
 
 After running the `docker-compose up -d` command, the link provided was "http://10.146.109.153:5000". Using this, the following example commands were run. 
-* `curl http://10.146.109.153:5000/metadata`
+
+`curl http://10.146.109.153:5000/metadata`
 ```
 {
   "CENTER_NAME": [
@@ -98,13 +99,15 @@ After running the `docker-compose up -d` command, the link provided was "http://
   ]
 }
 ```
-* `curl http://10.146.109.153:5000/epochs/10/speed`
+
+`curl http://10.146.109.153:5000/epochs/10/speed`
 ```
 [
   7.664049347556523
 ]
 ```
-* `curl http://10.146.109.153:5000/epochs/20/location`
+
+`curl http://10.146.109.153:5000/epochs/20/location`
 ```
 [
   [
