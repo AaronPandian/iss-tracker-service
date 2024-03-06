@@ -9,6 +9,7 @@ This repository contains the source code and instruction to build, run, and test
 3. [Build and Deploy](#build-and-deploy)
    1. [How to Build the Container](#how-to-build-the-container)
    2. [How to Deploy Containerized Code as a Flask App](#how-to-deploy-containerized-code-as-a-flask-app)
+   3. [How to Run Unit Tests](#how-to-run-unit-tests)
 4. [Service Functionality](#service-functionality)
    1. [Accessing Routes](#accessing-routes)
    2. [What Outputs to Expect](#what-outputs-to-expect)
@@ -21,21 +22,33 @@ This repository contains the source code and instruction to build, run, and test
 The ISS tracking data this app requests can be found on the NASA website [[1]](#citations). This ephemeris dataset, compiled by the NASA Johnson Space Center, contains a header section and a primary data section. The header contains the ISS mass in kg, drag area in m<sup>2</sup>, and drag coefficient used in generating the subsequent data. The primary data section contains information from the last 15-day interval. The timesteps vary from 4 minutes to 2 seconds and timestep notes state vectors detailing the time in UTC ISO date format; position X, Y, and Z in km; and velocity X, Y, and Z in km/s.
 
 ### Build and Deploy
-First ensure the environment you are using has Docker installed.
+First, ensure the environment you are using has Docker installed. Second, you should be conducting the following within the root folder you imported the source code into before.
 #### How to Build the Container
-Clone the GitHub repository to your machine, then log in to docker from your machine. 
-Implement "docker build" to construct an image of the container using the path of the Dockerfile from the source code. It will look something like `docker build -t <dockerhubusername>/<code>:<version> .` to build the Dockerfile. The `<dockerhubusername>` above represents the image and tag name on a local machine. The `<code>` represents the filename, for example "iss_tracker.py".
-Subsequently, use `docker tag` to set a tag for the image. Next run `docker images` to ensure the instance was created successfully with the corresponding tag.
+Create a folder in your directory to input the code, for example, "iss_app", by running `mkdir iss_app`.
+
+Run `cd iss_app` to enter the created folder then run the `wget <linktofile>` command to import all the files from this repository into your directory. 
+
+Once all the files are gathered, double check with `ls`. To build the image, run the command `docker build -t <dockerhubusername>/iss_tracker:1.0 .` and check if the build was successful with `docker images.`.
+
+By implementing the command above, you should see the image created with the tag "<dockerhubusername>/iss_tracker:1.0".
+
 #### How to Deploy Containerized Code as a Flask App
-Now using the following command, we can run the main script iss_tracker.py as `docker run --name "iss-tracker-app" -d -p 5000:5000 <dockerhubusername>/<code>:<version>` and obtain an image instance. 
-To run the unit test, use the same `docker run <dockerhubusername>/<code>:<version>` command replacing the code file with "test_iss_tracker.py" to test the main script functions. 
+After building the image, you can run the instance as a container. To do so, enter the command `docker-compose up -d`. This runs the Docker Compose file which deploys the image in the background.  
+
+At this point, your continer is running the main iss_tracker.py script in the background of your terminal. Use the following section to interact with the application. 
+
+Once you are done running the flask app, to clean up your interface, remove the image using the container ID found when running `docker images`. Once the ID is found, run `docker stop <containerID>` to stop the application from running in the background, and then `docker rm <containerID>` to remove the instance from your list of images.
+
+#### How to Run Unit Tests
+Just to note, you can run a unit test script to ensure the main iss_tracker.py script is running as it should. After the image is build and while the main script is not running use `docker run <dockerhubusername>/iss_tracker:1.0 test_iss_tracker.py` command to run the test. If no output is seen, then the main service script is working as it should be.  
 
 ### Service Functionality
 #### Accessing Routes
-Once the image is running, the terminal will be waiting for requests to be made using specific URL routes. Using the HTTPS URL displayed in the terminal, open another window in your command prompt and paste the URL. Then append the following routes at the end of the URL to obtain the desired functions. 
+After running the `docker-compose up -d` command, a background terminal will be waiting for requests to be made using specific URL routes. Using the HTTPS URL displayed in your main terminal, type `curl <URL>`, then append the following routes at the end of the URL to induce the desired dataset analysis. 
 
 * `/epochs` returns the whole dataset.
-* `/epochs?limit=int&offset=int` returns a modified dataset, given the integer query parameters. The offset parameter sets the start and the limit sets the final index for which the data is returned, thus the limit must be greater than the offset to query successfully.
+* `/epochs?limit=int&offset=int` returns a modified dataset given the integer query parameters.
+     * The offset parameter denotes the number of epochs you want to returned and the limit sets the final epoch index. If the offset value is greater than the limit, _all_ preceeding epoch datapoints will be returned. 
 * `/epochs/<epoch>` returns the state vector for the specific epoch at index `<epoch>`.
 * `/epochs/<epoch>/speed` returns the instantaneous speed of the ISS at the specified epoch index `<epoch>`.
 * `/now` returns the state vector and instantaneous speed for the most current epoch.
