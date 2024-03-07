@@ -121,4 +121,4 @@ After running the `docker-compose up -d` command, the link provided was _http://
 
 ### Citations
 <a id="1">[1]</a>
-“Spot the Station.” ISS Trajectory Data, NASA, [spotthestation.nasa.gov/trajectory_data.cfm](spotthestation.nasa.gov/trajectory_data.cfm). Accessed 6 Mar. 2024. 
+“Spot the Station.” ISS Trajectory Data, NASA, https://spotthestation.nasa.gov/trajectory_data.cfm. Accessed 6 Mar. 2024. 
