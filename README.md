@@ -5,19 +5,19 @@ This repository contains the source code and instructions to build, run, and tes
 
 ### Table of Contents
 1. [Software Diagram](#software-diagram)
-2. [Data Description](#data-description)
-3. [Repository Description](#repository-description)
-4. [Build and Deploy](#build-and-deploy)
+3. [Data Description](#data-description)
+4. [Repository Description](#repository-description)
+5. [Build and Deploy](#build-and-deploy)
    1. [How to Build the Container](#how-to-build-the-container)
    2. [How to Deploy Containerized Code as a Flask App](#how-to-deploy-containerized-code-as-a-flask-app)
    3. [How to Run Unit Tests](#how-to-run-unit-tests)
-5. [Service Functionality](#service-functionality)
+6. [Service Functionality](#service-functionality)
    1. [Accessing Routes](#accessing-routes)
    2. [What Outputs to Expect](#what-outputs-to-expect)
-6. [Citations](#citations)
+7. [Citations](#citations)
 
 ### Software Diagram
-![Alt text](https://github.com/AaronPandian/coe323-homeworks/blob/main/homework05/diagram.png)
+![Alt text](https://github.com/AaronPandian/iss-tracker-service/blob/main/diagram.png)
 
 ### Data Description
 The ISS tracking data this app requests can be found on the NASA website [[1]](#citations). This ephemeris dataset, compiled by the NASA Johnson Space Center, contains a header section and a primary data section. The header contains the ISS mass in kg, drag area in m<sup>2</sup>, and drag coefficient used in generating the subsequent data. The primary data section contains information from the last 15-day interval. The timesteps vary from 4 minutes to 2 seconds and timestep notes state vectors detailing the time in UTC ISO date format; position X, Y, and Z in km; and velocity X, Y, and Z in km/s.
