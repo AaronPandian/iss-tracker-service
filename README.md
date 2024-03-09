@@ -58,14 +58,16 @@ After running the `docker-compose up -d` command, a background terminal will be 
 1. `/epochs` returns the whole dataset.
 2. `/epochs?limit=int&offset=int` returns a modified dataset given the integer query parameters. Note that to run this route, specifically, the command will include quotation marks like `curl '<URL>/epochs?limit=int&offset=int'`.
      * The offset parameter denotes the number of epochs you want to return and the limit sets the final epoch index. If the offset value is greater than the limit, _all_ preceding epoch data points will be returned. 
-3. `/epochs/<epoch>` returns the state vector information for the specific epoch at index `<epoch>`.
+3. `/epochs/<epoch>` returns the state vector information for the specific epoch index `<epoch>`.
      * The `<epoch>` entered into the route will throw an error if this value is not an integer.
 4. `/epochs/<epoch>/speed` returns the instantaneous speed of the ISS at the specified epoch at index `<epoch>`.
      * The `<epoch>` entered into the route will throw an error if this value is not an integer.
-5. `/now` returns the instantaneous speed for the latest epoch alongside the current latitude, longitude, altitude, and geoposition- in order.
-6. `/comment` returns the comments from the ISS ephemeris dataset.
-7. `/header` returns the header information, as detailed prior, from the ISS ephemeris dataset.
-8. `/metadata` returns the metadata from the ISS ephemeris dataset.
+5. `/epochs/<epoch>/location` returns the latitude, longitude, altitude, and geoposition- in order, at the specified epoch index `<epoch>`.
+     * The `<epoch>` entered into the route will throw an error if this value is not an integer.
+6. `/now` returns the instantaneous speed for the latest epoch alongside the current latitude, longitude, altitude, and geoposition- in order.
+7. `/comment` returns the comments from the ISS ephemeris dataset.
+8. `/header` returns the header information, as detailed prior, from the ISS ephemeris dataset.
+9. `/metadata` returns the metadata from the ISS ephemeris dataset.
      * This information includes the ISS object name, ID, center name, data reference frame, time system, start time, and end time. 
 
 #### What Outputs to Expect
