@@ -77,7 +77,7 @@ def return_iss_dataset():
     states, summary, items = get_dataset(url)
 
     try:
-        offset = int(request.args.get(key='offset', default=items))
+        offset = int(request.args.get(key='offset', default=0))
         limit = int(request.args.get(key='limit', default=items))
     except TypeError:
         logging.warning("Invalid offset or limit parameter; both must be an integer.")
